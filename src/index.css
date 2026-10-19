@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #2dd4bf;
+  --color-bg: #0b1113;
+  --color-card: #11191c;
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+:root { color-scheme: dark; font-family: var(--font-sans); background: #0b1113; color: #d5e0e2; font-synthesis: none; text-rendering: optimizeLegibility; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { margin: 0; min-width: 320px; background: #0b1113; -webkit-font-smoothing: antialiased; }
+button, input, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background: rgba(45, 212, 191, .3); color: #fff; }
+.section-wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+.section-pad { padding-block: 100px; }
+.eyebrow { color: #2dd4bf; font: 500 12px/1.5 'DM Mono', monospace; letter-spacing: .16em; text-transform: uppercase; }
+.section-title { color: #f2f8f8; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.08; letter-spacing: -.055em; font-weight: 800; }
+.muted { color: #9aabad; }
+.glow { text-shadow: 0 0 28px rgba(45,212,191,.16); }
+.grid-bg { background-image: linear-gradient(rgba(45,212,191,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(45,212,191,.035) 1px, transparent 1px); background-size: 48px 48px; }
+.panel { border: 1px solid rgba(148,163,184,.15); background: linear-gradient(145deg, rgba(20,30,33,.92), rgba(13,20,22,.94)); border-radius: 18px; }
+.accent-line { height: 1px; background: linear-gradient(90deg, rgba(45,212,191,.55), rgba(45,212,191,0)); }
+:focus-visible { outline: 2px solid #2dd4bf; outline-offset: 4px; }
+@media (max-width: 640px) { .section-pad { padding-block: 72px; } .section-wrap { width: min(100% - 32px, 1120px); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }

@@ -1,0 +1,13 @@
+import Layout from './components/Layout.jsx'
+import Hero from './components/Hero.jsx'
+import About from './components/About.jsx'
+import Skills from './components/Skills.jsx'
+import Projects from './components/Projects.jsx'
+import Services from './components/Services.jsx'
+import Certifications from './components/Certifications.jsx'
+import Education from './components/Education.jsx'
+import Contact from './components/Contact.jsx'
+
+export default function App() {
+  return <Layout><Hero /><About /><Skills /><Projects /><Services /><Certifications /><Education /><Contact /></Layout>
+}

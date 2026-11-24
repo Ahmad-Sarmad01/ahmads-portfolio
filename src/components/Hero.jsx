@@ -31,7 +31,7 @@ export default function Hero() {
           <div className="absolute -right-3 -top-3 z-10 rounded-full border border-primary/30 bg-[#0b1113] px-4 py-2 font-mono text-[10px] text-primary">&lt; building /&gt;</div>
           <div className="relative flex aspect-[4/4.7] items-center justify-center overflow-hidden rounded-[20px] border border-white/5 bg-[radial-gradient(ellipse_at_50%_35%,rgba(45,212,191,.13),transparent_55%),linear-gradient(145deg,#172326,#0b1113)]">
             <img
-              src={`${import.meta.env.BASE_URL}ahmad.jpeg`}
+              src={`${import.meta.env.BASE_URL}Ahmad.jpeg`}
               alt="Ahmad Sarmad profile portrait"
               className="absolute inset-0 z-10 h-full w-full object-cover"
               onError={(e) => {

@@ -1,3 +1,4 @@
+
 import { FiArrowUpRight, FiGithub } from 'react-icons/fi'
 import { useEffect, useState } from 'react'
 
@@ -35,7 +36,9 @@ function ScreenshotCarousel({ images, title, assetPath }) {
           src={assetPath(src)}
           alt={`${title} screenshot ${index + 1}`}
           className={`absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-500 ${
-            index === activeIndex ? 'opacity-100' : 'pointer-events-none opacity-0'
+            index === activeIndex
+              ? 'opacity-100'
+              : 'pointer-events-none opacity-0'
           }`}
           loading="lazy"
         />
@@ -83,7 +86,6 @@ function ScreenshotCarousel({ images, title, assetPath }) {
   )
 }
 
-
 function ProjectDescription({ text }) {
   const [expanded, setExpanded] = useState(false)
 
@@ -109,6 +111,31 @@ function ProjectDescription({ text }) {
 }
 
 const projects = [
+  {
+    title: 'Systemize AI',
+    type: 'AI-POWERED BUSINESS OPERATIONS PLATFORM',
+    desc: 'Systemize AI is a multi-tenant business operations platform designed to help teams organize, manage, and streamline their internal workflows. It provides customizable workspaces and boards, request tracking, AI-powered request analysis and recommendations, team collaboration, role-based permissions, notifications, reporting, and audit logs. Its human-in-the-loop workflows allow teams to review AI-generated insights and make informed decisions while maintaining control over their operations.',
+    stack: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Tailwind CSS',
+      'Python',
+      'FastAPI',
+      'MongoDB',
+      'JWT',
+      'Google Gemini',
+      'Groq',
+      'Mistral',
+      'OpenRouter',
+    ],
+    images: [
+      '/projects/systemize-ai-dashboard.png',
+      '/projects/systemize-ai-workflow.png',
+    ],
+    live: 'https://systemize-ai.vercel.app/',
+    github: 'https://github.com/Ahmad-Sarmad01/systemize-ai',
+  },
   {
     title: 'ULTRON',
     type: 'AI-POWERED PERSONAL COMPANION',
@@ -213,50 +240,48 @@ export default function Projects() {
           </h2>
 
           <p className="muted max-w-sm leading-6">
-            Four real projects. Different challenges. Built with a focus on
+            Five real projects. Different challenges. Built with a focus on
             practical solutions, thoughtful interfaces, and useful functionality.
           </p>
         </div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {projects.map((p) => (
+          {projects.map((p, index) => (
             <article
-              key={p.n}
+              key={p.title}
               className="panel group flex flex-col overflow-hidden p-5 transition duration-300 hover:-translate-y-1 hover:border-primary/40"
             >
-            <div className="grid-bg relative mb-6 aspect-[16/10] overflow-hidden rounded-xl border border-white/5 bg-[#0b1113]">
-              {p.images ? (
-                <ScreenshotCarousel
-                  images={p.images}
-                  title={p.title}
-                  assetPath={assetPath}
-                />
-              ) : (
-                <img
-                  src={assetPath(p.image)}
-                  alt={`${p.title} application screenshot`}
-                  className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
-                  loading="lazy"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none'
-                  }}
-                />
-              )}
-              <span className="absolute left-3 top-3 rounded-full border border-white/10 bg-[#0b1113]/90 px-3 py-1 font-mono text-[9px] tracking-widest text-primary">
-                {p.type}
-              </span>
+              <div className="grid-bg relative mb-6 aspect-[16/10] overflow-hidden rounded-xl border border-white/5 bg-[#0b1113]">
+                {p.images ? (
+                  <ScreenshotCarousel
+                    images={p.images}
+                    title={p.title}
+                    assetPath={assetPath}
+                  />
+                ) : (
+                  <img
+                    src={assetPath(p.image)}
+                    alt={`${p.title} application screenshot`}
+                    className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none'
+                    }}
+                  />
+                )}
 
-              <span className="absolute bottom-3 right-3 font-mono text-4xl font-medium text-white/70">
-                {p.n}
-              </span>
-            </div>
+                <span className="absolute left-3 top-3 rounded-full border border-white/10 bg-[#0b1113]/90 px-3 py-1 font-mono text-[9px] tracking-widest text-primary">
+                  {p.type}
+                </span>
+              </div>
+
               <h3 className="text-xl font-bold text-white transition group-hover:text-primary">
                 {p.title}
               </h3>
 
-              <p className="mt-3 flex-1 text-sm leading-6 text-slate-400">
+              <div className="mt-3 flex-1">
                 <ProjectDescription text={p.desc} />
-              </p>
+              </div>
 
               <div className="mt-5 flex flex-wrap gap-2">
                 {p.stack.map((s) => (
@@ -304,7 +329,8 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <FiGithub size={15} /> Source code
+                    <FiGithub size={15} />
+                    Source code
                     <FiArrowUpRight size={13} />
                   </a>
                 )}
